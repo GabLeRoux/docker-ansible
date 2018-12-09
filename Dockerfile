@@ -1,11 +1,17 @@
-FROM python:3.7.0
+FROM python:3.7-alpine
 
-ENV ANSIBLE_VERSION=2.7.4
+COPY requirements.txt ./
 
-RUN apt-get update -y \
-  && apt-get install -y \
+RUN apk add --update --no-cache \
     openssh-client \
-  && rm -rf /var/lib/apt/lists/*
-RUN pip install ansible==$ANSIBLE_VERSION
+    --virtual .build-deps \
+      make \
+      gcc \
+      python3-dev \
+      musl-dev \
+      libffi-dev \
+      openssl-dev \
+    && pip install --no-cache-dir -r requirements.txt \
+    && apk del .build-deps
 
 CMD ['ansible']
