@@ -70,6 +70,10 @@ Yes, why not?
 
 I don't trust people when it comes to running critical code against infrastructure. If you wish to use this, I recommend you to fork it and build your own.
 
+### How is this image deployed to docker hub?
+
+I'm using [docker's automated build](https://docs.docker.com/docker-hub/builds/)
+
 ## License
 
 [MIT](LICENSE.md) © [Gabriel Le Breton](https://gableroux.com)
