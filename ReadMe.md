@@ -9,6 +9,7 @@ Docker image to use [`ansible`](https://www.ansible.com/) and `ssh` in a CI :+1:
 [![Image](https://images.microbadger.com/badges/image/gableroux/ansible.svg)](https://microbadger.com/images/gableroux/ansible)
 [![Version](https://images.microbadger.com/badges/version/gableroux/ansible.svg)](https://microbadger.com/images/gableroux/ansible)
 [![Layers](https://images.microbadger.com/badges/image/gableroux/ansible.svg)](https://microbadger.com/images/gableroux/ansible)
+[![Requirements Status](https://requires.io/github/GabLeRoux/ansible-docker-image/requirements.svg)](https://requires.io/github/GabLeRoux/ansible-docker-image/requirements/)
 
 ## Usage
 
