@@ -4,13 +4,14 @@ COPY requirements.txt ./
 
 RUN apk add --update --no-cache \
     openssh-client \
+    musl-dev \
+    libffi-dev \
+    openssl-dev 
+RUN apk add --update --no-cache \
     --virtual .build-deps \
-      make \
-      gcc \
-      python3-dev \
-      musl-dev \
-      libffi-dev \
-      openssl-dev \
+    make \
+    gcc \
+    python3-dev \
     && pip install --no-cache-dir -r requirements.txt \
     && apk del .build-deps
 
