@@ -4,6 +4,7 @@ COPY requirements.txt ./
 
 RUN apk add --update --no-cache \
     openssh-client \
+    rsync \
     musl-dev \
     libffi-dev \
     openssl-dev 
