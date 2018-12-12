@@ -69,7 +69,7 @@ Yes, why not?
 
 ### There are already a lot of ansible docker images out there, why a new one?
 
-I don't trust people when it comes to running critical code against infrastructure. If you wish to use this, I recommend you to fork it and build your own.
+I don't trust people when it comes to running critical code against infrastructure. If you wish to use this, I recommend you to fork it and build your own. There are many good alternatives, notably [William-Yeh/docker-ansible](https://github.com/William-Yeh/docker-ansible), but I found it was kind of big or doing too many things. Installing ansible is quite easy so I made a single image based on alpine so it's small. :)
 
 ### How is this image deployed to docker hub?
 
