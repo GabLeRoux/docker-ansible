@@ -7,12 +7,13 @@ RUN apk add --update --no-cache \
     rsync \
     musl-dev \
     libffi-dev \
-    openssl-dev 
+    openssl-dev
 RUN apk add --update --no-cache \
     --virtual .build-deps \
     make \
     gcc \
     python3-dev \
+    && pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt \
     && apk del .build-deps
 
