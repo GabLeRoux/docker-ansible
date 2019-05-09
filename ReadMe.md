@@ -16,7 +16,7 @@ Docker image to use [`ansible`](https://www.ansible.com/) and `ssh` in a CI :+1:
 ### Command line
 
 ```bash
-docker run --rm -it gableroux/ansible:2.7.4 ansible --help
+docker run --rm -it gableroux/ansible:2.7.10 ansible --help
 ```
 
 ### gitlab-ci example
@@ -25,7 +25,7 @@ docker run --rm -it gableroux/ansible:2.7.4 ansible --help
 .ansible: &ansible
   stage: deploy
   when: manual
-  image: gableroux/ansible:2.7.4
+  image: gableroux/ansible:2.7.10
   before_script:
     # https://docs.gitlab.com/ee/ci/ssh_keys/
     - eval $(ssh-agent -s)
@@ -46,6 +46,10 @@ deploy-example-master:
 ```
 
 ## FAQ
+
+### How to deploy new docker image
+
+There is a script in `scripts` that reads values from `versions.txt` and runs required commands to push to the repository with tags and trigger docker hub. :v:
 
 ### Why bother using a docker image
 
