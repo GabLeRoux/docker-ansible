@@ -1,1 +1,1 @@
-ansible==2.8.0rc3
+ansible==2.8.0
