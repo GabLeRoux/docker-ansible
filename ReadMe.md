@@ -65,7 +65,7 @@ The official image is used to run tests for the ansible project. I wish they had
 
 ### My version is not there, what can I do?
 
-Fork the project, replace `ENV` and push your own image.
+Have a look at [hub.docker.com/r/gableroux/ansible/tags](https://hub.docker.com/r/gableroux/ansible/tags), most versions are available and I have automatic PRs setup for upgrading the project so the version you're looking for should be there. If for some reason, it's still not there, you can fork the project, replace `ENV` and push your own image.
 
 ### Can I contribute?
 
