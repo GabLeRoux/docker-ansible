@@ -7,7 +7,8 @@ RUN apk add --update --no-cache \
     rsync \
     musl-dev \
     libffi-dev \
-    openssl-dev
+    openssl-dev \
+    cargo
 RUN apk add --update --no-cache \
     --virtual .build-deps \
     make \
