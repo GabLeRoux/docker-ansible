@@ -1,1 +1,3 @@
 ansible==3.0.0
+# ansible required package for json_query https://github.com/ansible/ansible/issues/24319
+jmespath==0.10.0
