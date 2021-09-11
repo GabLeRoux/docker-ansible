@@ -1,4 +1,4 @@
-# ansible docker image
+# Docker ansible
 
 Docker image to use [`ansible`](https://www.ansible.com/) and `ssh` in a CI :+1:
 
