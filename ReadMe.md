@@ -4,7 +4,6 @@ Docker image to use [`ansible`](https://www.ansible.com/) and `ssh` in a CI :+1:
 
 [![Docker Stars](https://img.shields.io/docker/stars/gableroux/ansible.svg)](https://hub.docker.com/r/gableroux/ansible)
 [![Docker Pulls](https://img.shields.io/docker/pulls/gableroux/ansible.svg)](https://hub.docker.com/r/gableroux/ansible)
-[![Docker Automated](https://img.shields.io/docker/automated/gableroux/ansible.svg)](https://hub.docker.com/r/gableroux/ansible)
 [![Docker Build](https://img.shields.io/docker/build/gableroux/ansible.svg)](https://hub.docker.com/r/gableroux/ansible)
 [![Image](https://images.microbadger.com/badges/image/gableroux/ansible.svg)](https://microbadger.com/images/gableroux/ansible)
 [![Version](https://images.microbadger.com/badges/version/gableroux/ansible.svg)](https://microbadger.com/images/gableroux/ansible)
@@ -65,7 +64,7 @@ The official image is used to run tests for the ansible project. I wish they had
 
 ### My version is not there, what can I do?
 
-Have a look at [hub.docker.com/r/gableroux/ansible/tags](https://hub.docker.com/r/gableroux/ansible/tags), most versions are available and I have automatic PRs setup for upgrading the project so the version you're looking for should be there. If for some reason, it's still not there, you can fork the project, replace `ENV` and push your own image.
+Have a look at [hub.docker.com/r/gableroux/ansible/tags](https://hub.docker.com/r/gableroux/ansible/tags), most versions are available. There are auomatic PRs setup for upgrading the project so the version you're looking for should be there. If for some reason, it's still not there, you can fork the project, replace `ENV` and push your own image. Image building is done trough github-actions.
 
 ### Can I contribute?
 
@@ -73,11 +72,11 @@ Yes, why not?
 
 ### There are already a lot of ansible docker images out there, why a new one?
 
-I don't trust people when it comes to running critical code against infrastructure. If you wish to use this, I recommend you to fork it and build your own. There are many good alternatives, notably [William-Yeh/docker-ansible](https://github.com/William-Yeh/docker-ansible), but I found it was kind of big or doing too many things. Installing ansible is quite easy so I made a single image based on alpine so it's small. :)
+I don't trust people when it comes to running critical code against infrastructure. If you wish to use this, I recommend you to fork it and build your own. There are many good alternatives, notably [William-Yeh/docker-ansible](https://github.com/William-Yeh/docker-ansible), but I found it was kind of big or doing too many things. This docker image is based on alpine and is very minimal and small :)
 
 ### How is this image deployed to docker hub?
 
-I'm using [docker's automated build](https://docs.docker.com/docker-hub/builds/)
+I'm using [github-actions](https://github.com/features/actions). See [`.github/workflows/`](https://github.com/gableroux/ansible-docker-image/tree/main/.github/workflows/)
 
 ## License
 
