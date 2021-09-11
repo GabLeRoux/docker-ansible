@@ -1,1 +1,1 @@
-ansible==2.8.18
+ansible==2.8.18rc1
