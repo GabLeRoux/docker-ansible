@@ -1,1 +1,1 @@
-ansible==2.9.21rc1
+ansible==2.9.22
