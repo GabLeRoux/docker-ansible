@@ -5,10 +5,7 @@ Docker image to use [`ansible`](https://www.ansible.com/) and `ssh` in a CI :+1:
 [![Docker Stars](https://img.shields.io/docker/stars/gableroux/ansible.svg)](https://hub.docker.com/r/gableroux/ansible)
 [![Docker Pulls](https://img.shields.io/docker/pulls/gableroux/ansible.svg)](https://hub.docker.com/r/gableroux/ansible)
 [![Docker Build](https://img.shields.io/docker/build/gableroux/ansible.svg)](https://hub.docker.com/r/gableroux/ansible)
-[![Image](https://images.microbadger.com/badges/image/gableroux/ansible.svg)](https://microbadger.com/images/gableroux/ansible)
-[![Version](https://images.microbadger.com/badges/version/gableroux/ansible.svg)](https://microbadger.com/images/gableroux/ansible)
-[![Layers](https://images.microbadger.com/badges/image/gableroux/ansible.svg)](https://microbadger.com/images/gableroux/ansible)
-[![Requirements Status](https://requires.io/github/GabLeRoux/ansible-docker-image/requirements.svg)](https://requires.io/github/GabLeRoux/ansible-docker-image/requirements/)
+[![Requirements Status](https://requires.io/github/GabLeRoux/docker-ansible/requirements.svg)](https://requires.io/github/GabLeRoux/docker-ansible/requirements/)
 
 ## Usage
 
@@ -58,13 +55,13 @@ Installing with `pip` is fine, but pulling this image is faster.
 
 [As described here in the short description](https://store.docker.com/r/ansible/ansible):
 
-> Images for automated testing of Ansible. They do not include Ansible and are not for end users. 
+> Images for automated testing of Ansible. They do not include Ansible and are not for end users.
 
 The official image is used to run tests for the ansible project. I wish they had and official image for actually running ansible.
 
 ### My version is not there, what can I do?
 
-Have a look at [hub.docker.com/r/gableroux/ansible/tags](https://hub.docker.com/r/gableroux/ansible/tags), most versions are available. There are auomatic PRs setup for upgrading the project so the version you're looking for should be there. If for some reason, it's still not there, you can fork the project, replace `ENV` and push your own image. Image building is done trough github-actions.
+Have a look at [hub.docker.com/r/gableroux/ansible/tags](https://hub.docker.com/r/gableroux/ansible/tags), most versions are available. There are automatic PRs setup for upgrading the project so the version you're looking for should be there. If for some reason, it's still not there, you can fork the project, replace `ENV` and push your own image. Image building is done trough github-actions.
 
 ### Can I contribute?
 
@@ -76,7 +73,7 @@ I don't trust people when it comes to running critical code against infrastructu
 
 ### How is this image deployed to docker hub?
 
-I'm using [github-actions](https://github.com/features/actions). See [`.github/workflows/`](https://github.com/gableroux/ansible-docker-image/tree/main/.github/workflows/)
+I'm using [github-actions](https://github.com/features/actions). See [`.github/workflows/`](https://github.com/gableroux/docker-ansible/tree/main/.github/workflows/)
 
 ## License
 
