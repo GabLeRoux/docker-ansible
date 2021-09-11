@@ -1,1 +1,1 @@
-ansible==2.10.0a2
+ansible==2.10.0a3
