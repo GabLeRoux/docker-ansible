@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'main'
-    paths:
-      - 'ReadMe.md'
+#    paths:
+#      - 'ReadMe.md'
 
 jobs:
   docker:
