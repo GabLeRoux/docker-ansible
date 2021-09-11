@@ -1,1 +1,1 @@
-ansible==2.7.17
+ansible==2.7.18
