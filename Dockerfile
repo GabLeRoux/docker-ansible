@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM docker.io/library/python:3.7-alpine
 
 COPY requirements.txt ./
 
@@ -14,7 +14,7 @@ RUN apk add --update --no-cache \
     make \
     gcc \
     python3-dev \
-    && pip install --upgrade pip \
+    && pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt \
     && apk del .build-deps
 
