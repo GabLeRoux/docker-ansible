@@ -32,9 +32,10 @@ jobs:
             gableroux/ansible
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=ref,event=branch,prefix=${{ steps.ansible-version.outputs.ANSIBLE_VERSION }}-
-            type=ref,event=pr,prefix=${{ steps.ansible-version.outputs.ANSIBLE_VERSION }}-
+            type=ref,event=branch,prefix=${{ steps.ansible-version.outputs.ANSIBLE_VERSION }}-branch-
+            type=ref,event=pr,prefix=${{ steps.ansible-version.outputs.ANSIBLE_VERSION }}-pr-
             type=semver,pattern={{version}},prefix=${{ steps.ansible-version.outputs.ANSIBLE_VERSION }}-
+            type=sha,prefix=${{ steps.ansible-version.outputs.ANSIBLE_VERSION }}-sha-
             type=sha
             type=edge,value=${{ steps.ansible-version.outputs.ANSIBLE_VERSION }},branch=$repo.default_branch
       - name: Set up QEMU
