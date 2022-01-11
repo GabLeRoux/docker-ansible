@@ -11,16 +11,16 @@ Docker image to use [`ansible`](https://www.ansible.com/) and `ssh` in a CI :+1:
 ### Command line
 
 ```bash
-docker run --rm -it gableroux/ansible:2.10.0a7
+docker run --rm -it gableroux/ansible:2.10.0a8
 ```
 
 ### gitlab-ci example
 
 ```yaml
-.ansible:2.10.0a7
+.ansible:2.10.0a8
   stage: deploy
   when: manual
-  image: gableroux/ansible:2.10.0a7
+  image: gableroux/ansible:2.10.0a8
   before_script:
     # https://docs.gitlab.com/ee/ci/ssh_keys/
     - eval $(ssh-agent -s)
