@@ -12,7 +12,4 @@ replace_version() {
     git add ReadMe.md
 
     git commit -m "Set version to ${new_version}"
-    git tag "${new_version}"
-    git push
-    git push --tags
 }
