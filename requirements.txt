@@ -1,1 +1,1 @@
-ansible==5.0.0a3
+ansible==5.0.0b1
