@@ -35,7 +35,7 @@ jobs:
             type=semver,pattern={{version}},prefix=${{ steps.ansible-version.outputs.ANSIBLE_VERSION }}-
             type=sha,prefix=${{ steps.ansible-version.outputs.ANSIBLE_VERSION }}-sha-
             type=sha
-            type=edge,value=${{ steps.ansible-version.outputs.ANSIBLE_VERSION }},branch=feature/safer-tag-mechanism
+            type=edge,value=${{ steps.ansible-version.outputs.ANSIBLE_VERSION }},branch=$repo.default_branch
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
