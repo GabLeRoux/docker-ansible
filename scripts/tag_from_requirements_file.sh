@@ -8,9 +8,9 @@ git config user.email "<>"
 requirements_version=$(cat requirements.txt | grep ansible | sed 's#ansible==##g')
 
 set +e
-echo git tag -d $requirements_version
-echo git push origin :refs/tags/$requirements_version
+#git tag -d $requirements_version
+#git push origin :refs/tags/$requirements_version
 
 set -e
-echo git tag $requirements_version
-echo git push --tags
+git tag $requirements_version
+git push --tags
