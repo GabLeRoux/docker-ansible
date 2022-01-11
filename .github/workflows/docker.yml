@@ -21,6 +21,10 @@ jobs:
       - name: Detect ansible version from requirements.txt
         run: echo "::set-output name=ANSIBLE_VERSION::$(grep -oP 'ansible==\K(.*)' requirements.txt)"
         id: ansible-version
+      - name: ansible version tag if on main branch
+        if: "${GITHUB_REF}" == "refs/heads/main"
+        id: ansible-version-tag-main-branch
+        run: echo "::set-output name=ANSIBLE_VERSION_TAG::${ANSIBLE_VERSION}"
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v3
@@ -59,5 +63,5 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             ${{ steps.meta.outputs.tags }}
-            ${{ steps.ansible-version.outputs.ANSIBLE_VERSION if github.ref == 'refs/heads/feature/safer-tag-mechanism' }}
+            ${{ steps.ansible-version-tag-main-branch.outputs.ANSIBLE_VERSION }}
           labels: ${{ steps.meta.outputs.labels }}
