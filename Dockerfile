@@ -18,4 +18,8 @@ RUN apk add --update --no-cache \
     && pip install --no-cache-dir -r requirements.txt \
     && apk del .build-deps
 
+RUN addgroup -g 1000 -S gitlab-runner && \
+    adduser -u 1000 -S gitlab-runner -G gitlab-runner
+USER gitlab-runner
+
 CMD ['ansible']

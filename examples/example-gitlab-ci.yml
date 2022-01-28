@@ -1,0 +1,67 @@
+stages:
+  - test
+  - stage
+  - deploy
+
+cache:
+  paths:
+    - roles/
+  key: "PIPELINE-$CI_PIPELINE_ID"
+  untracked: true
+
+.ansible: &ansible
+  image: gableroux/ansible:2.7.4
+  before_script:
+    # https://docs.gitlab.com/ee/ci/ssh_keys/
+    - eval $(ssh-agent -s)
+    - mkdir ~/.ssh/
+    - chmod 700 ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - touch ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+  tags:
+    - docker
+
+playbook-check:
+  stage: test
+  <<: *ansible
+  script:
+    - ansible --version
+    - ansible-galaxy install -r roles/requirements.yml -p roles
+    - echo $ANSIBLE_VAULT_PASSWORD > .vault_password.txt
+    - ansible-playbook --check --diff -i hosts-staging site.yml --vault-password-file .vault_password.txt
+    - ansible-playbook --check --diff -i hosts-prod site.yml --vault-password-file .vault_password.txt
+
+to-staging:
+  stage: stage
+  <<: *ansible
+  script:
+    - ansible --version
+    - ansible-galaxy install -r roles/requirements.yml -p roles
+    - echo $ANSIBLE_VAULT_PASSWORD > .vault_password.txt
+    - ansible-playbook -i hosts-staging.ini site.yml --vault-password-file .vault_password.txt
+  environment:
+    name: staging
+    url: http://staging.local
+  allow_failure: false
+  retry: 2
+  only:
+    - master
+
+to-production:
+  stage: deploy
+  <<: *ansible
+  script:
+    - ansible --version
+    - ansible-galaxy install -r roles/requirements.yml -p roles
+    - echo $ANSIBLE_VAULT_PASSWORD > .vault_password.txt
+    - ansible-playbook -i hosts-prod.ini site.yml --vault-password-file .vault_password.txt
+  environment:
+    name: production
+    url: http://production.local
+  allow_failure: false
+  retry: 2
+  only:
+    - master
+  when: manual
